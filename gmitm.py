@@ -36,7 +36,7 @@ class gmitm():
 
         def initelab1(packet):
             self.elaboration(self.iface1, packet)
-        self.iface1.sniff = AsyncSniffer(iface=self.iface1.name, pwd=initelab1)
+        self.iface1.sniff = AsyncSniffer(iface=self.iface1.name, pwd=initelab1, filter="inbound")
 
         def initelab2(packet):
             self.elaboration(self.iface2, packet)
