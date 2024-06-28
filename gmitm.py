@@ -32,6 +32,9 @@ class gmitm():
         os.system("iptables -A OUTPUT -j DROP")
         os.system("iptables -A FORWARD -j DROP")
 
+        os.system("ip link set eth0 up")
+        os.system("ip link set eth1 up")
+
         def initelab1(packet):
             self.elaboration(self.iface1, self.iface2, packet)
         self.iface1.sniff = AsyncSniffer(iface=self.iface1.name, prn=initelab1, filter="inbound")
