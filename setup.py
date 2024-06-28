@@ -10,16 +10,25 @@ if "gmitm.py" not in os.listdir() and "main.py" not in os.listdir():
     print("impossibile trovare i file necessari per l'installazione(questo script è dentro la repo?)")
     sys.exit()
 
+os.system("apt get install pip")
 os.system("pip install scapy")
 
-os.mkdir("/gmitm")
-shutil.move("gmitm.py")
-shutil.move("main.py")
+try:
+    os.mkdir("/gmitm")
+except:
+    print("CARTELLA /gmitm GIA ESISTENTE!!!!!\nDESIDERI SOVRASCRIVERE?")
+    i = input("('y' or 'n')>. ")
+    if i == "y":
+        os.system("rm -r /gmitm")
+    else:
+        sys.exit()
+shutil.move("gmitm.py", "/gmitm/gmitm.py")
+shutil.move("main.py", "/gmitm/main.py")
 
 file = open("/etc/systemd/system/gmitm.service", "w")
 file.write("""[Unit]
 Description=iface sniff service
-After=network.target
+Before=network.target
 
 [Service]
 Type=simple
