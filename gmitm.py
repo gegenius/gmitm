@@ -59,3 +59,4 @@ class gmitm():
             pass
         if save == True:
             self.pcapfile.write(elabpacket)
+            self.pcapfile.flush()
