@@ -15,7 +15,7 @@ di conseguenza appena avrai eseguito il setup, se necessiti di accedere al dispo
 
 $python gtool.py disable
 
-#SCRIPT PERSONALIZZATI
+# SCRIPT PERSONALIZZATI
 per fare un propio script è sufficente importare tutte le dipendenze dal file gmitm.py e chiamare la funzione gmitm passandogli come parametri la funzione per elaborare i pacchetti, il nome della prima interfaccai e il nome della seconda.
 la funzione deve prendere come parametri il nome dell'interfaccia da dove viene il pacchetto e il pacchetto vero e propio.
 IMPORTANTE: la funzione deve sempre tornare tre parametriche corrispondono all operazione(FORWARD, IGNORE, RESPOND), il pacchetto elaborato e il parametro di salvataggio(variabile booleana che indica se il pacchetto verrà salvato nel loot)
